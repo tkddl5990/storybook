@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "@components/Button";
+import Flex from "@components/Flex";
 
 export default {
   title: "Example/Commons/Button",
@@ -21,6 +22,20 @@ const defaultArgs = {
   disabled: false,
   outline: false,
 };
+
+const TotalButton = (args) => {
+  return (
+    <Flex align="center" gap={10}>
+      <Button primary {...args} />
+      <Button success {...args} />
+      <Button warning {...args} />
+      <Button dark {...args} />
+      <Button danger {...args} />
+    </Flex>
+  );
+};
+export const Total = TotalButton.bind({});
+Total.args = defaultArgs;
 
 const PrimaryButton = (args) => <Button {...args} primary />;
 export const Primary = PrimaryButton.bind({});
