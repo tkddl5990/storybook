@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Card from "@components/Cards/Card";
 import Form from "@components/Forms/Form";
 import Grid from "@components/Grid";
@@ -11,6 +11,7 @@ export default {
   argTypes: {
     placeholder: { type: "string" },
     error: { type: "boolean" },
+    disabled: { type: "boolean" },
   },
 };
 
@@ -28,6 +29,7 @@ const Template = (args) => {
         <TextInput
           placeholder={args.placeholder}
           onChange={(e) => setText(e.target.value)}
+          disabled={args.disabled}
           error={args.error}
         />
       </Form>
@@ -39,16 +41,21 @@ export const Primary = Template.bind({});
 Primary.args = {
   placeholder: "This Is TextInput Component",
   error: false,
+  disabled: false,
 };
 
 const Template2 = (args) => {
   const [text, setText] = useState("");
-  const [error, setError] = useState(args.error);
+  const [error, setError] = useState(false);
 
   const onChange = (e) => {
     setText(e.target.value);
     setError(false);
   };
+
+  useEffect(() => {
+    setError(args.error);
+  }, [args.error]);
 
   const submit = (e) => {
     e.preventDefault();
@@ -63,10 +70,11 @@ const Template2 = (args) => {
     <Card>
       <Form onSubmit={submit}>
         <Grid col="auto 1fr" gap={30} align="center">
-          <Label>여기는 라벨입니다</Label>
+          <Label weight={700}>여기는 라벨입니다</Label>
           <TextInput
             onChange={onChange}
             error={error}
+            disabled={args.disabled}
             placeholder={args.placeholder}
           />
         </Grid>
@@ -78,4 +86,5 @@ export const Second = Template2.bind({});
 Second.args = {
   placeholder: "This Is TextInput Component",
   error: false,
+  disabled: false,
 };

@@ -22,6 +22,7 @@ const Grid = ({ children, align, justify, col, gap, row, ...rest }) => {
           break;
         case "b":
           styles["margin-bottom"] = `${value}px`;
+          break;
         default:
           break;
       }
@@ -43,6 +44,7 @@ const Grid = ({ children, align, justify, col, gap, row, ...rest }) => {
           break;
         case "b":
           styles["padding-bottom"] = `${value}px`;
+          break;
         default:
           break;
       }

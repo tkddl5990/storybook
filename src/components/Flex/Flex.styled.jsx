@@ -6,6 +6,11 @@ const Flex = styled.div`
   justify-content: ${({ justify }) => justify};
   flex-direction: ${({ direction }) => direction};
   ${(props) =>
+    props.$style &&
+    css`
+      ${({ $style }) => ({ ...$style })}
+    `}
+  ${(props) =>
     props.gap &&
     css`
       gap: ${({ gap }) => (isNaN(gap) ? gap : gap + "px")};

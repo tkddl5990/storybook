@@ -6,6 +6,7 @@ import Grid from "@components/Grid";
 import Form from "@components/Forms/Form";
 import TextInput from "@components/Forms/TextInput";
 import Label from "@components/Forms/Label";
+import Button from "@components/Button";
 
 const App = () => {
   const [text, setText] = useState("");
@@ -52,9 +53,42 @@ const App = () => {
           </Grid>
           <Grid col="minmax(120px, auto) 1fr" gap={30} align="center">
             <Label required>labael</Label>
-            <TextInput onChange={(e) => setLabel(e.target.value)} />
+            <Flex align="center" gap={8}>
+              <TextInput onChange={(e) => setLabel(e.target.value)} />
+              <Button onClick={submit}>check</Button>
+            </Flex>
           </Grid>
         </Form>
+      </Card>
+      <Card>
+        <Flex gap={10}>
+          <Button primary>primary</Button>
+          <Button warning size="medium">
+            warning
+          </Button>
+          <Button dark size="large">
+            dark
+          </Button>
+          <Button danger>danger</Button>
+          <Button success>success</Button>
+        </Flex>
+        <Flex gap={10} mt-16>
+          <Button primary outline>
+            primary
+          </Button>
+          <Button warning outline>
+            warning
+          </Button>
+          <Button dark outline>
+            dark
+          </Button>
+          <Button danger outline>
+            danger
+          </Button>
+          <Button success outline>
+            success
+          </Button>
+        </Flex>
       </Card>
     </div>
   );
