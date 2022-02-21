@@ -2,8 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Styled from "./Flex.styled";
 
-const Flex = ({ children, ...rest }) => {
-  const { align, justify, direction, gap } = rest;
+const Flex = ({ children, align, justify, direction, gap, ...rest }) => {
   return (
     <Styled.Flex
       align={align}

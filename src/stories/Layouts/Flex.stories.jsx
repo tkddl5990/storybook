@@ -29,7 +29,10 @@ export default {
 
 const Template = (args) => {
   return (
-    <Flex {...args}>
+    <Flex
+      {...args}
+      style={{ width: "100%", height: 300, border: "1px solid black" }}
+    >
       <Flex
         align="center"
         justify="center"
