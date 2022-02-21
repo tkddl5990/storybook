@@ -11,7 +11,7 @@ const CardTitle = ({ children, size, color }) => {
 };
 
 CardTitle.propTypes = {
-  size: PropTypes.oneOfType(["small", "medium", "large"]),
+  size: PropTypes.oneOf(["small", "medium", "large"]),
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,

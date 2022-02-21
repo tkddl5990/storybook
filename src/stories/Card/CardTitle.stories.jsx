@@ -1,6 +1,6 @@
 import React from "react";
-import Card from "../Card";
-import CardTitle from "./CardTitle";
+import Card from "@components/Cards/Card";
+import CardTitle from "@components/Cards/CardTitle/CardTitle";
 
 export default {
   title: "Example/Cards/CardTitle",
