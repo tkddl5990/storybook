@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const FormContainer = styled.form`
-  border: 1px solid red;
   width: ${({ width }) => width};
   position: relative;
 

@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "@components/Cards/Card";
 import CardTitle from "@components/Cards/CardTitle";
 import Flex from "@components/Flex";
 import Grid from "@components/Grid";
+import Form from "@components/Forms/Form";
+import TextInput from "@components/Forms/TextInput";
+import Label from "@components/Forms/Label";
 
 const App = () => {
+  const [text, setText] = useState("");
+  const [label, setLabel] = useState("");
+
+  const submit = (e) => {
+    e.preventDefault();
+    console.log(text, label);
+  };
+
   return (
     <div style={{ padding: "20px", backgroundColor: "#e4e5e6" }}>
       <Card>
@@ -32,6 +43,18 @@ const App = () => {
           <div style={{ padding: 20, background: "grey" }} />
           <div style={{ padding: 20, background: "black" }} />
         </Grid>
+      </Card>
+      <Card>
+        <Form onSubmit={submit}>
+          <Grid col="80px 1fr" gap={30} align="center" mb-12>
+            <Label>text</Label>
+            <TextInput onChange={(e) => setText(e.target.value)} error />
+          </Grid>
+          <Grid col="80px 1fr" gap={30} align="center">
+            <Label required>labael</Label>
+            <TextInput onChange={(e) => setLabel(e.target.value)} />
+          </Grid>
+        </Form>
       </Card>
     </div>
   );
