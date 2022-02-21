@@ -46,11 +46,11 @@ const App = () => {
       </Card>
       <Card>
         <Form onSubmit={submit}>
-          <Grid col="80px 1fr" gap={30} align="center" mb-12>
+          <Grid col="minmax(120px, auto) 1fr" gap={30} align="center" mb-12>
             <Label>text</Label>
-            <TextInput onChange={(e) => setText(e.target.value)} error />
+            <TextInput onChange={(e) => setText(e.target.value)} />
           </Grid>
-          <Grid col="80px 1fr" gap={30} align="center">
+          <Grid col="minmax(120px, auto) 1fr" gap={30} align="center">
             <Label required>labael</Label>
             <TextInput onChange={(e) => setLabel(e.target.value)} />
           </Grid>

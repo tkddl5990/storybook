@@ -27,6 +27,6 @@ Primary.args = {
   children: "이것은 라벨입니다.",
   size: "16px",
   color: "#111",
-  weight: "400",
+  weight: "500",
   required: false,
 };
