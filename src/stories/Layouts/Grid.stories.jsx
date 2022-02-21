@@ -1,4 +1,5 @@
 import React from "react";
+import Card from "@components/Cards/Card";
 import Grid from "@components/Grid";
 import Flex from "@components/Flex";
 
@@ -26,29 +27,31 @@ const tempArr = [
 
 const Template = (args) => {
   return (
-    <Grid {...args}>
-      {tempArr.map((item, index) => (
-        <Flex
-          key={`${item}`}
-          style={{ background: item, padding: "20px" }}
-          align="center"
-          justfy="center"
-        >
-          {index}
-          {index === 3 && (
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
-              molestias mollitia nemo asperiores quis ut, aliquid totam
-              obcaecati. Lorem ipsum dolor sit amet consectetur adipisicing
-              elit. Vel molestias mollitia nemo asperiores quis ut, aliquid
-              totam obcaecati. Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Vel molestias mollitia nemo asperiores quis ut,
-              aliquid totam obcaecati.
-            </p>
-          )}
-        </Flex>
-      ))}
-    </Grid>
+    <Card>
+      <Grid {...args}>
+        {tempArr.map((item, index) => (
+          <Flex
+            key={`${item}`}
+            style={{ background: item, padding: "20px" }}
+            align="center"
+            justfy="center"
+          >
+            {index}
+            {index === 3 && (
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
+                molestias mollitia nemo asperiores quis ut, aliquid totam
+                obcaecati. Lorem ipsum dolor sit amet consectetur adipisicing
+                elit. Vel molestias mollitia nemo asperiores quis ut, aliquid
+                totam obcaecati. Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Vel molestias mollitia nemo asperiores quis
+                ut, aliquid totam obcaecati.
+              </p>
+            )}
+          </Flex>
+        ))}
+      </Grid>
+    </Card>
   );
 };
 export const Primary = Template.bind({});

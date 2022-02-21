@@ -24,7 +24,6 @@ module.exports = {
       "@pages": path.resolve(__dirname, "../src/pages"),
     };
 
-    console.log("config.resolve", config.resolve);
     return config;
   },
 };
