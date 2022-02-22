@@ -14,7 +14,7 @@ const Select = ({
 
   useEffect(() => {
     if (!options.find((item) => item[optionValue]))
-      throw new Error(`${optionValue} is not found`);
+      throw new Error(`component: property[${optionValue}] is not found`);
   }, [options, optionValue]);
 
   return (
