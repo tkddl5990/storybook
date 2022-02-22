@@ -7,14 +7,17 @@ import Form from "@components/Forms/Form";
 import TextInput from "@components/Forms/TextInput";
 import Label from "@components/Forms/Label";
 import Button from "@components/Button";
+import Select from "@components/Forms/Select";
 
 const App = () => {
   const [text, setText] = useState("");
   const [label, setLabel] = useState("");
+  const [select, setSelect] = useState("3");
+  const [select1, setSelect1] = useState("2");
 
   const submit = (e) => {
     e.preventDefault();
-    console.log(text, label);
+    console.log(text, label, select);
   };
 
   return (
@@ -54,8 +57,47 @@ const App = () => {
           <Grid col="minmax(120px, auto) 1fr" gap={30} align="center">
             <Label required>labael</Label>
             <Flex align="center" gap={8}>
-              <TextInput onChange={(e) => setLabel(e.target.value)} />
+              <TextInput onChange={(e) => setLabel(e.target.value)} disabled />
               <Button onClick={submit}>check</Button>
+            </Flex>
+          </Grid>
+          <Grid col="minmax(120px, auto) 1fr" gap={30} align="center" mt-12>
+            <Label>select</Label>
+            <Flex gap={10}>
+              <Select
+                options={[
+                  { id: "1", value: "value1" },
+                  { id: "2", value: "value2" },
+                  { id: "3", value: "value3" },
+                ]}
+                defaultOptions={{ label: "value", value: "id" }}
+                isTotal
+                disabled
+                value={select1}
+                onChange={(e) => setSelect1(e.target.value)}
+              />
+              <Select
+                options={[
+                  { id: "1", value: "value1" },
+                  { id: "2", value: "value2" },
+                  { id: "3", value: "value3" },
+                ]}
+                defaultOptions={{ label: "value", value: "id" }}
+                isTotal
+                value={select}
+                onChange={(e) => setSelect(e.target.value)}
+              />
+              <Select
+                options={[
+                  { id: "1", value: "value1" },
+                  { id: "2", value: "value2" },
+                  { id: "3", value: "value3" },
+                ]}
+                defaultOptions={{ label: "value", value: "id" }}
+                isTotal
+                value={select}
+                onChange={(e) => setSelect(e.target.value)}
+              />
             </Flex>
           </Grid>
         </Form>
