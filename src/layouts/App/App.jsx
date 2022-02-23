@@ -9,6 +9,7 @@ import Label from "@components/Forms/Label";
 import Button from "@components/Button";
 import Select from "@components/Forms/Select";
 import Radio from "@components/Forms/Radio";
+import Check from "@components/Forms/Check";
 
 const App = () => {
   const [text, setText] = useState("");
@@ -74,6 +75,7 @@ const App = () => {
                 value="1"
                 onChange={(e) => setRadio(e.target.value)}
                 checked={radio === "1"}
+                disabled
               >
                 심쿵배송
               </Radio>
@@ -143,6 +145,47 @@ const App = () => {
                 value={select}
                 onChange={(e) => setSelect(e.target.value)}
               />
+            </Flex>
+          </Grid>
+          <Grid col="minmax(120px, auto) 1fr" gap={30} align="center" mt-12>
+            <Label>check</Label>
+            <Flex gap={16}>
+              <Check id="1" name="check" disabled>
+                닭
+              </Check>
+              <Check id="2" name="check">
+                오리
+              </Check>
+              <Check id="3" name="check">
+                칠면조
+              </Check>
+              <Check id="4" name="check">
+                소
+              </Check>
+              <Check id="5" name="check">
+                양
+              </Check>
+              <Check id="6" name="check">
+                돼지
+              </Check>
+              <Check id="7" name="check">
+                사슴
+              </Check>
+              <Check id="8" name="check">
+                캥거루
+              </Check>
+              <Check id="9" name="check">
+                연어
+              </Check>
+              <Check id="10" name="check">
+                흰살생선
+              </Check>
+              <Check id="11" name="check">
+                야채
+              </Check>
+              <Check id="12" name="check">
+                기타
+              </Check>
             </Flex>
           </Grid>
         </Form>

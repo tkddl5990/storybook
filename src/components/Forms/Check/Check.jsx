@@ -2,12 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import Flex from "@components/Flex";
 import Label from "@components/Forms/Label";
-import Styled from "./Radio.styled";
+import Styled from "./Check.styled";
 
-const Radio = ({ id, size, children, disabled, ...rest }) => {
+const Check = ({ id, size, name, children, disabled, ...rest }) => {
   return (
     <Flex align="center" gap="8">
-      <Styled.Radio id={id} disabled={disabled} {...rest} />
+      <Styled.Check id={id} disabled={disabled} {...rest} />
       <Label id={id} size={size} color={disabled ? "#e4e7ea" : "#5c6873"}>
         {children}
       </Label>
@@ -15,7 +15,7 @@ const Radio = ({ id, size, children, disabled, ...rest }) => {
   );
 };
 
-Radio.propTypes = {
+Check.propTypes = {
   id: PropTypes.string,
   disabled: PropTypes.bool,
   size: PropTypes.string,
@@ -26,4 +26,4 @@ Radio.propTypes = {
   ]),
 };
 
-export default Radio;
+export default Check;

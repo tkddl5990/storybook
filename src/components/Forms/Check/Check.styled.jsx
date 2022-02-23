@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-const Radio = styled.input.attrs({
-  type: "radio",
+const Check = styled.input.attrs({
+  type: "checkbox",
   className: "form-check-input",
 })`
   margin-top: 0px;
@@ -16,4 +16,4 @@ const Radio = styled.input.attrs({
   }
 `;
 
-export default { Radio };
+export default { Check };
