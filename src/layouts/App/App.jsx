@@ -8,16 +8,18 @@ import TextInput from "@components/Forms/TextInput";
 import Label from "@components/Forms/Label";
 import Button from "@components/Button";
 import Select from "@components/Forms/Select";
+import Radio from "@components/Forms/Radio";
 
 const App = () => {
   const [text, setText] = useState("");
   const [label, setLabel] = useState("");
   const [select, setSelect] = useState("3");
   const [select1, setSelect1] = useState("2");
+  const [radio, setRadio] = useState("1");
 
   const submit = (e) => {
     e.preventDefault();
-    console.log(text, label, select);
+    console.log(text, label, select, radio);
   };
 
   return (
@@ -55,10 +57,53 @@ const App = () => {
             <TextInput onChange={(e) => setText(e.target.value)} />
           </Grid>
           <Grid col="minmax(120px, auto) 1fr" gap={30} align="center">
-            <Label required>labael</Label>
+            <Label required size="32px">
+              label
+            </Label>
             <Flex align="center" gap={8}>
               <TextInput onChange={(e) => setLabel(e.target.value)} disabled />
               <Button onClick={submit}>check</Button>
+            </Flex>
+          </Grid>
+          <Grid col="minmax(120px, auto) 1fr" gap={30} align="center" mt-12>
+            <Label>Radio</Label>
+            <Flex gap={16}>
+              <Radio
+                id="test1"
+                name="test"
+                value="1"
+                onChange={(e) => setRadio(e.target.value)}
+                checked={radio === "1"}
+              >
+                심쿵배송
+              </Radio>
+              <Radio
+                id="test2"
+                name="test"
+                value="2"
+                onChange={(e) => setRadio(e.target.value)}
+                checked={radio === "2"}
+              >
+                물류배송
+              </Radio>
+              <Radio
+                id="test3"
+                name="test"
+                value="3"
+                onChange={(e) => setRadio(e.target.value)}
+                checked={radio === "3"}
+              >
+                업체배송
+              </Radio>
+              <Radio
+                id="test4"
+                name="test"
+                value="4"
+                onChange={(e) => setRadio(e.target.value)}
+                checked={radio === "4"}
+              >
+                라이더배송
+              </Radio>
             </Flex>
           </Grid>
           <Grid col="minmax(120px, auto) 1fr" gap={30} align="center" mt-12>
@@ -131,6 +176,14 @@ const App = () => {
             success
           </Button>
         </Flex>
+      </Card>
+      <Card>
+        <Grid
+          col="minmax(120px, auto) 1fr"
+          gap={30}
+          align="center"
+          mb-12
+        ></Grid>
       </Card>
     </div>
   );
