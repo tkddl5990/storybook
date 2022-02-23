@@ -221,12 +221,82 @@ const App = () => {
         </Flex>
       </Card>
       <Card>
-        <Grid
-          col="minmax(120px, auto) 1fr"
-          gap={30}
-          align="center"
-          mb-12
-        ></Grid>
+        <CardTitle>컨텐츠목록</CardTitle>
+        <Form>
+          <Grid col="1fr 1fr" align="center" gap={40} mt-20>
+            <Grid col="minmax(80px, auto) 1fr" gap={10} align="center">
+              <Label weight="700" size="1rem" color="#5c6873">
+                대분류
+              </Label>
+              <Select
+                options={[
+                  { id: "1", value: "value1" },
+                  { id: "2", value: "value2" },
+                  { id: "3", value: "value3" },
+                ]}
+                defaultOptions={{ label: "value", value: "id" }}
+                isTotal
+                disabled
+                value={select}
+                onChange={(e) => setSelect(e.target.value)}
+              />
+            </Grid>
+            <Grid col="minmax(80px, auto) 1fr" gap={10} align="center">
+              <Label weight="700" size="1rem">
+                소분류
+              </Label>
+              <Select
+                options={[
+                  { id: "1", value: "value1" },
+                  { id: "2", value: "value2" },
+                  { id: "3", value: "value3" },
+                ]}
+                defaultOptions={{ label: "value", value: "id" }}
+                isTotal
+                value={select}
+                onChange={(e) => setSelect(e.target.value)}
+              />
+            </Grid>
+          </Grid>
+          <Grid col="1fr 1fr" align="center" gap={40} mt-20>
+            <Grid col="minmax(80px, auto) 1fr" gap={10} align="center">
+              <Label weight="700" size="1rem">
+                기준일시
+              </Label>
+              <Select
+                options={[
+                  { id: "1", value: "value1" },
+                  { id: "2", value: "value2" },
+                  { id: "3", value: "value3" },
+                ]}
+                defaultOptions={{ label: "value", value: "id" }}
+                isTotal
+                value={select}
+                onChange={(e) => setSelect(e.target.value)}
+              />
+            </Grid>
+            <Grid col="minmax(80px, auto) 1fr" gap={10} align="center">
+              <Label weight="700" size="1rem">
+                선택날짜
+              </Label>
+              <Grid col="60px minmax(120px, auto) 1fr" align="center">
+                <Radio id="total" name="day">
+                  전체
+                </Radio>
+                <Radio id="choice" name="day">
+                  기준일시 선택
+                </Radio>
+                <TextInput />
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid col="minmax(80px, auto) 1fr" gap={10} align="center" mt-20>
+            <Label weight="700" size="1rem">
+              제목검색
+            </Label>
+            <TextInput />
+          </Grid>
+        </Form>
       </Card>
     </div>
   );
