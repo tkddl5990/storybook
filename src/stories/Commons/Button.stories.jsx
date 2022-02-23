@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "@components/Button";
+import Card from "@components/Cards/Card";
 import Flex from "@components/Flex";
 
 export default {
@@ -25,13 +26,15 @@ const defaultArgs = {
 
 const TotalButton = (args) => {
   return (
-    <Flex align="center" gap={10}>
-      <Button primary {...args} />
-      <Button success {...args} />
-      <Button warning {...args} />
-      <Button dark {...args} />
-      <Button danger {...args} />
-    </Flex>
+    <Card>
+      <Flex align="center" gap={10}>
+        <Button primary {...args} />
+        <Button success {...args} />
+        <Button warning {...args} />
+        <Button dark {...args} />
+        <Button danger {...args} />
+      </Flex>
+    </Card>
   );
 };
 export const Total = TotalButton.bind({});
