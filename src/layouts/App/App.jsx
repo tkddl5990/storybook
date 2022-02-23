@@ -10,6 +10,7 @@ import Button from "@components/Button";
 import Select from "@components/Forms/Select";
 import Radio from "@components/Forms/Radio";
 import Check from "@components/Forms/Check";
+import SingleDate from "@components/Forms/SingleDate";
 
 const App = () => {
   const [text, setText] = useState("");
@@ -221,6 +222,14 @@ const App = () => {
         </Flex>
       </Card>
       <Card>
+        <Grid col="minmax(80px, auto) 1fr" gap={10} align="center">
+          <Label weight="700" size="1rem">
+            소분류
+          </Label>
+          <SingleDate />
+        </Grid>
+      </Card>
+      <Card>
         <CardTitle>컨텐츠목록</CardTitle>
         <Form>
           <Grid col="1fr 1fr" align="center" gap={40} mt-20>
@@ -286,7 +295,7 @@ const App = () => {
                 <Radio id="choice" name="day">
                   기준일시 선택
                 </Radio>
-                <TextInput />
+                <SingleDate />
               </Grid>
             </Grid>
           </Grid>
