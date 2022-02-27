@@ -2,6 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min";
 import "react-toastify/dist/ReactToastify.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import "react-datepicker/dist/react-datepicker.css";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },

@@ -12,6 +12,7 @@ const DateContainer = styled.div.attrs(({ active, disabled }) => ({
   line-height: 1.5;
   height: calc(1.5em + 0.75rem + 2px);
   border-radius: 0.25rem;
+  flex: 1;
 
   &.active {
     box-shadow: 0 0 0 0.2rem rgb(32 168 216 / 25%);
@@ -43,6 +44,7 @@ const DateContainer = styled.div.attrs(({ active, disabled }) => ({
 
   & .react-datepicker-wrapper {
     height: 100%;
+    flex: 1;
   }
 
   & .react-datepicker__input-container {
@@ -87,6 +89,33 @@ const DateContainer = styled.div.attrs(({ active, disabled }) => ({
     background-color: #fff;
   }
 
+  &
+    .react-datepicker__time-container
+    .react-datepicker__time
+    .react-datepicker__time-box
+    ul.react-datepicker__time-list {
+    color: #5c6873;
+  }
+
+  &
+    .react-datepicker__time-container
+    .react-datepicker__time
+    .react-datepicker__time-box
+    ul.react-datepicker__time-list
+    li.react-datepicker__time-list-item--selected {
+    background-color: transparent;
+    color: #216ba5;
+  }
+
+  &
+    .react-datepicker__time-container
+    .react-datepicker__time
+    .react-datepicker__time-box
+    ul.react-datepicker__time-list
+    li.react-datepicker__time-list-item--selected:hover {
+    background: transparent;
+  }
+
   & .react-datepicker__header {
     background-color: #fff;
     border: 0;
@@ -128,6 +157,7 @@ const DatePicker = styled.button`
   color: #5c6873;
   background: #fff;
   text-align: left;
+  white-space: nowrap;
 `;
 
 const ClearButton = styled.button.attrs({ className: "clear-button" })`

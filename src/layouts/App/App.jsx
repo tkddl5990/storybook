@@ -11,6 +11,7 @@ import Select from "@components/Forms/Select";
 import Radio from "@components/Forms/Radio";
 import Check from "@components/Forms/Check";
 import SingleDate from "@components/Forms/SingleDate";
+import DoubleDate from "@components/Forms/DoubleDate";
 
 const App = () => {
   const [text, setText] = useState("");
@@ -18,10 +19,31 @@ const App = () => {
   const [select, setSelect] = useState("3");
   const [select1, setSelect1] = useState("2");
   const [radio, setRadio] = useState("1");
+  const [single, setSingle] = useState(new Date());
+  const [single2, setSingle2] = useState("2021-10-06");
+  const [period, setPeriod] = useState({
+    start: "2022-02-01",
+    end: "2022-02-28",
+  });
+
+  const onChangePeriodHandler = (key) => (date) => {
+    setPeriod({
+      ...period,
+      [key]: date,
+    });
+  };
 
   const submit = (e) => {
     e.preventDefault();
-    console.log(text, label, select, radio);
+    console.log(
+      { text },
+      { label },
+      { select },
+      { radio },
+      { single },
+      { single2 },
+      { start: period.start, end: period.end }
+    );
   };
 
   return (
@@ -224,15 +246,32 @@ const App = () => {
       <Card>
         <Grid col="minmax(80px, auto) 1fr" gap={10} align="center">
           <Label weight="700" size="1rem">
-            소분류
+            포맷없는경우
           </Label>
-          <SingleDate />
+          <SingleDate
+            format="yyyy년 MM월 dd일"
+            value={single}
+            onChange={setSingle}
+          />
+        </Grid>
+        <Grid col="minmax(80px, auto) 1fr" gap={10} align="center" mt-20>
+          <Label weight="700" size="1rem">
+            포맷있는경우
+          </Label>
+          <DoubleDate
+            format="yyyy년 MM월 dd일"
+            returnFormat="YYYY-MM-DD"
+            start={period.start}
+            end={period.end}
+            onChangeStart={onChangePeriodHandler("start")}
+            onChangeEnd={onChangePeriodHandler("end")}
+          />
         </Grid>
       </Card>
       <Card>
         <CardTitle>컨텐츠목록</CardTitle>
         <Form>
-          <Grid col="1fr 1fr" align="center" gap={40} mt-20>
+          <Grid col="1fr 1fr" align="center" gap={40}>
             <Grid col="minmax(80px, auto) 1fr" gap={10} align="center">
               <Label weight="700" size="1rem" color="#5c6873">
                 대분류
@@ -286,7 +325,7 @@ const App = () => {
             </Grid>
             <Grid col="minmax(80px, auto) 1fr" gap={10} align="center">
               <Label weight="700" size="1rem">
-                선택날짜
+                선택시간
               </Label>
               <Grid col="60px minmax(120px, auto) 1fr" align="center">
                 <Radio id="total" name="day">
@@ -295,7 +334,13 @@ const App = () => {
                 <Radio id="choice" name="day">
                   기준일시 선택
                 </Radio>
-                <SingleDate />
+                <SingleDate
+                  value={single2}
+                  onChange={setSingle2}
+                  isShowTime
+                  format="yyyy-MM-dd HH:mm:ss"
+                  returnFormat="YYYY-MM-DD HH:mm:ss"
+                />
               </Grid>
             </Grid>
           </Grid>
