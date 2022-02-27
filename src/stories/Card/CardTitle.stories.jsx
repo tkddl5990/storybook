@@ -24,7 +24,7 @@ const Template = (args) => (
       dolor sit amet consectetur adipisicing elit. Vel molestias mollitia nemo
       asperiores quis ut, aliquid totam obcaecati. Lorem ipsum dolor sit amet
       consectetur adipisicing elit. Vel molestias mollitia nemo asperiores quis
-      ut, aliquid totam obcaecati. modal singledate doubledate table pagination
+      ut, aliquid totam obcaecati. modal table pagination
     </p>
   </Card>
 );

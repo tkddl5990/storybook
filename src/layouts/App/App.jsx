@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useQuery } from "react-query";
 import Card from "@components/Cards/Card";
 import CardTitle from "@components/Cards/CardTitle";
 import Flex from "@components/Flex";
@@ -13,7 +15,12 @@ import Check from "@components/Forms/Check";
 import SingleDate from "@components/Forms/SingleDate";
 import DoubleDate from "@components/Forms/DoubleDate";
 
-const App = () => {
+function App() {
+  const { isLoading, error, data, isFetching } = useQuery("test", () =>
+    axios("https://api.github.com/repos/tannerlinsley/react-query").then(
+      (res) => res
+    )
+  );
   const [text, setText] = useState("");
   const [label, setLabel] = useState("");
   const [select, setSelect] = useState("3");
@@ -25,6 +32,13 @@ const App = () => {
     start: "2022-02-01",
     end: "2022-02-28",
   });
+
+  useEffect(() => {
+    console.log("isLoading", isLoading);
+    console.log("error", error);
+    console.log("data", data);
+    console.log("isFetcching", isFetching);
+  }, []);
 
   const onChangePeriodHandler = (key) => (date) => {
     setPeriod({
@@ -354,6 +368,6 @@ const App = () => {
       </Card>
     </div>
   );
-};
+}
 
 export default App;
