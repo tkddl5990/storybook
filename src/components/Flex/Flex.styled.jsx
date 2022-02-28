@@ -11,6 +11,11 @@ const Flex = styled.div`
       ${({ $style }) => ({ ...$style })}
     `}
   ${(props) =>
+    props.flex &&
+    css`
+      flex: ${({ flex }) => flex};
+    `}
+  ${(props) =>
     props.gap &&
     css`
       gap: ${({ gap }) => (isNaN(gap) ? gap : gap + "px")};

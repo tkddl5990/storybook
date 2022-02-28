@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { useQuery } from "react-query";
+import React, { useState } from "react";
 import Card from "@components/Cards/Card";
 import CardTitle from "@components/Cards/CardTitle";
 import Flex from "@components/Flex";
@@ -14,13 +12,9 @@ import Radio from "@components/Forms/Radio";
 import Check from "@components/Forms/Check";
 import SingleDate from "@components/Forms/SingleDate";
 import DoubleDate from "@components/Forms/DoubleDate";
+import Period from "@components/Units/Period";
 
 function App() {
-  const { isLoading, error, data, isFetching } = useQuery("test", () =>
-    axios("https://api.github.com/repos/tannerlinsley/react-query").then(
-      (res) => res
-    )
-  );
   const [text, setText] = useState("");
   const [label, setLabel] = useState("");
   const [select, setSelect] = useState("3");
@@ -33,18 +27,11 @@ function App() {
     end: "2022-02-28",
   });
 
-  useEffect(() => {
-    console.log("isLoading", isLoading);
-    console.log("error", error);
-    console.log("data", data);
-    console.log("isFetcching", isFetching);
-  }, []);
-
   const onChangePeriodHandler = (key) => (date) => {
-    setPeriod({
-      ...period,
+    setPeriod((prev) => ({
+      ...prev,
       [key]: date,
-    });
+    }));
   };
 
   const submit = (e) => {
@@ -258,29 +245,37 @@ function App() {
         </Flex>
       </Card>
       <Card>
-        <Grid col="minmax(80px, auto) 1fr" gap={10} align="center">
-          <Label weight="700" size="1rem">
-            포맷없는경우
-          </Label>
-          <SingleDate
-            format="yyyy년 MM월 dd일"
-            value={single}
-            onChange={setSingle}
-          />
-        </Grid>
-        <Grid col="minmax(80px, auto) 1fr" gap={10} align="center" mt-20>
-          <Label weight="700" size="1rem">
-            포맷있는경우
-          </Label>
-          <DoubleDate
-            format="yyyy년 MM월 dd일"
-            returnFormat="YYYY-MM-DD"
-            start={period.start}
-            end={period.end}
-            onChangeStart={onChangePeriodHandler("start")}
-            onChangeEnd={onChangePeriodHandler("end")}
-          />
-        </Grid>
+        <Form width="90%" onSubmit={(e) => e.preventDefault()}>
+          <Grid col="minmax(90px, auto) 1fr" gap={10} align="center">
+            <Label weight="700" size="1rem">
+              포맷없는경우
+            </Label>
+            <SingleDate
+              format="yyyy년 MM월 dd일"
+              value={single}
+              onChange={setSingle}
+            />
+          </Grid>
+          <Grid col="minmax(90px, auto) 1fr" gap={10} align="center" mt-20>
+            <Label weight="700" size="1rem">
+              포맷있는경우
+            </Label>
+            <DoubleDate />
+          </Grid>
+          <Grid col="minmax(90px, auto) 1fr" gap={10} align="center" mt-20>
+            <Label weight="700" size="1rem">
+              선택기한
+            </Label>
+            <Period
+              format="yyyy년 MM월 dd일"
+              returnFormat="YYYY-MM-DD"
+              start={period.start}
+              end={period.end}
+              onChangeStart={onChangePeriodHandler("start")}
+              onChangeEnd={onChangePeriodHandler("end")}
+            />
+          </Grid>
+        </Form>
       </Card>
       <Card>
         <CardTitle>컨텐츠목록</CardTitle>

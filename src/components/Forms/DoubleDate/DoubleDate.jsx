@@ -22,7 +22,7 @@ const DoubleDate = ({
   );
 
   return (
-    <Flex align="center" gap={10}>
+    <Flex align="center" gap={10} flex={1}>
       <SingleDate
         value={start}
         onChange={onChangeStart}

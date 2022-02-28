@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import Card from "@components/Cards/Card";
-import DoubleDate from "@components/Forms/DoubleDate";
+import Period from "@components/Units/Period";
 
 export default {
-  title: "Example/Forms/DoubleDate",
-  components: DoubleDate,
-  argTypes: {
+  title: "Example/Units/Period",
+  components: Period,
+  argsTypes: {
     format: { type: "string" },
     returnFormat: { type: "string" },
     isShowTime: { type: "boolean" },
@@ -24,7 +24,7 @@ const Template = (args) => {
 
   return (
     <Card>
-      <DoubleDate
+      <Period
         {...args}
         start={period.start}
         end={period.end}

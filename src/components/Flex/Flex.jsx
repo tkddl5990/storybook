@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Styled from "./Flex.styled";
 
-const Flex = ({ children, align, justify, direction, gap, ...rest }) => {
+const Flex = ({ children, align, justify, direction, gap, flex, ...rest }) => {
   const margin = Object.keys(rest).filter((it) => it.match(/^m/gi));
   const padding = Object.keys(rest).filter((it) => it.match(/^p/gi));
   const styles = {};
@@ -57,6 +57,7 @@ const Flex = ({ children, align, justify, direction, gap, ...rest }) => {
       justify={justify}
       direction={direction}
       gap={gap}
+      flex={flex}
       $style={styles}
       {...rest}
     >
