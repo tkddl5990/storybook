@@ -13,6 +13,7 @@ import Check from "@components/Forms/Check";
 import SingleDate from "@components/Forms/SingleDate";
 import DoubleDate from "@components/Forms/DoubleDate";
 import Period from "@components/Units/Period";
+import Modal from "@components/Modal";
 
 function App() {
   const [text, setText] = useState("");
@@ -24,17 +25,17 @@ function App() {
   const [single2, setSingle2] = useState("2021-10-06");
   const [period, setPeriod] = useState({
     start: "2022-02-01",
-    end: "2022-02-28",
+    end: "2022-02-28"
   });
 
-  const onChangePeriodHandler = (key) => (date) => {
-    setPeriod((prev) => ({
+  const onChangePeriodHandler = key => date => {
+    setPeriod(prev => ({
       ...prev,
-      [key]: date,
+      [key]: date
     }));
   };
 
-  const submit = (e) => {
+  const submit = e => {
     e.preventDefault();
     console.log(
       { text },
@@ -79,14 +80,14 @@ function App() {
         <Form onSubmit={submit}>
           <Grid col="minmax(120px, auto) 1fr" gap={30} align="center" mb-12>
             <Label>text</Label>
-            <TextInput onChange={(e) => setText(e.target.value)} />
+            <TextInput onChange={e => setText(e.target.value)} />
           </Grid>
           <Grid col="minmax(120px, auto) 1fr" gap={30} align="center">
             <Label required size="32px">
               label
             </Label>
             <Flex align="center" gap={8}>
-              <TextInput onChange={(e) => setLabel(e.target.value)} disabled />
+              <TextInput onChange={e => setLabel(e.target.value)} disabled />
               <Button onClick={submit}>check</Button>
             </Flex>
           </Grid>
@@ -97,7 +98,7 @@ function App() {
                 id="test1"
                 name="test"
                 value="1"
-                onChange={(e) => setRadio(e.target.value)}
+                onChange={e => setRadio(e.target.value)}
                 checked={radio === "1"}
                 disabled
               >
@@ -107,7 +108,7 @@ function App() {
                 id="test2"
                 name="test"
                 value="2"
-                onChange={(e) => setRadio(e.target.value)}
+                onChange={e => setRadio(e.target.value)}
                 checked={radio === "2"}
               >
                 물류배송
@@ -116,7 +117,7 @@ function App() {
                 id="test3"
                 name="test"
                 value="3"
-                onChange={(e) => setRadio(e.target.value)}
+                onChange={e => setRadio(e.target.value)}
                 checked={radio === "3"}
               >
                 업체배송
@@ -125,7 +126,7 @@ function App() {
                 id="test4"
                 name="test"
                 value="4"
-                onChange={(e) => setRadio(e.target.value)}
+                onChange={e => setRadio(e.target.value)}
                 checked={radio === "4"}
               >
                 라이더배송
@@ -139,35 +140,35 @@ function App() {
                 options={[
                   { id: "1", value: "value1" },
                   { id: "2", value: "value2" },
-                  { id: "3", value: "value3" },
+                  { id: "3", value: "value3" }
                 ]}
                 defaultOptions={{ label: "value", value: "id" }}
                 isTotal
                 disabled
                 value={select1}
-                onChange={(e) => setSelect1(e.target.value)}
+                onChange={e => setSelect1(e.target.value)}
               />
               <Select
                 options={[
                   { id: "1", value: "value1" },
                   { id: "2", value: "value2" },
-                  { id: "3", value: "value3" },
+                  { id: "3", value: "value3" }
                 ]}
                 defaultOptions={{ label: "value", value: "id" }}
                 isTotal
                 value={select}
-                onChange={(e) => setSelect(e.target.value)}
+                onChange={e => setSelect(e.target.value)}
               />
               <Select
                 options={[
                   { id: "1", value: "value1" },
                   { id: "2", value: "value2" },
-                  { id: "3", value: "value3" },
+                  { id: "3", value: "value3" }
                 ]}
                 defaultOptions={{ label: "value", value: "id" }}
                 isTotal
                 value={select}
-                onChange={(e) => setSelect(e.target.value)}
+                onChange={e => setSelect(e.target.value)}
               />
             </Flex>
           </Grid>
@@ -245,7 +246,7 @@ function App() {
         </Flex>
       </Card>
       <Card>
-        <Form width="90%" onSubmit={(e) => e.preventDefault()}>
+        <Form width="90%" onSubmit={e => e.preventDefault()}>
           <Grid col="minmax(90px, auto) 1fr" gap={10} align="center">
             <Label weight="700" size="1rem">
               포맷없는경우
@@ -289,13 +290,13 @@ function App() {
                 options={[
                   { id: "1", value: "value1" },
                   { id: "2", value: "value2" },
-                  { id: "3", value: "value3" },
+                  { id: "3", value: "value3" }
                 ]}
                 defaultOptions={{ label: "value", value: "id" }}
                 isTotal
                 disabled
                 value={select}
-                onChange={(e) => setSelect(e.target.value)}
+                onChange={e => setSelect(e.target.value)}
               />
             </Grid>
             <Grid col="minmax(80px, auto) 1fr" gap={10} align="center">
@@ -306,12 +307,12 @@ function App() {
                 options={[
                   { id: "1", value: "value1" },
                   { id: "2", value: "value2" },
-                  { id: "3", value: "value3" },
+                  { id: "3", value: "value3" }
                 ]}
                 defaultOptions={{ label: "value", value: "id" }}
                 isTotal
                 value={select}
-                onChange={(e) => setSelect(e.target.value)}
+                onChange={e => setSelect(e.target.value)}
               />
             </Grid>
           </Grid>
@@ -324,12 +325,12 @@ function App() {
                 options={[
                   { id: "1", value: "value1" },
                   { id: "2", value: "value2" },
-                  { id: "3", value: "value3" },
+                  { id: "3", value: "value3" }
                 ]}
                 defaultOptions={{ label: "value", value: "id" }}
                 isTotal
                 value={select}
-                onChange={(e) => setSelect(e.target.value)}
+                onChange={e => setSelect(e.target.value)}
               />
             </Grid>
             <Grid col="minmax(80px, auto) 1fr" gap={10} align="center">
@@ -360,6 +361,12 @@ function App() {
             <TextInput />
           </Grid>
         </Form>
+      </Card>
+      <Card>
+        <Grid col="1fr" align="center" gap={40}>
+          <Button>모달 켜기</Button>
+          <Modal title="모달 타이틀" />
+        </Grid>
       </Card>
     </div>
   );

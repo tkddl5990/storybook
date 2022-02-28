@@ -14,5 +14,5 @@ const Card = styled.div.attrs({ className: "card-body" })`
 `;
 
 export default {
-  Card,
+  Card
 };
