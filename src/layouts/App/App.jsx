@@ -13,6 +13,7 @@ import Check from "@components/Forms/Check";
 import SingleDate from "@components/Forms/SingleDate";
 import DoubleDate from "@components/Forms/DoubleDate";
 import Period from "@components/Units/Period";
+import Table from "@components/Table";
 
 function App() {
   const [text, setText] = useState("");
@@ -276,6 +277,9 @@ function App() {
             />
           </Grid>
         </Form>
+      </Card>
+      <Card>
+        <Table />
       </Card>
       <Card>
         <CardTitle>컨텐츠목록</CardTitle>
