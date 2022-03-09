@@ -1,10 +1,11 @@
 import React from "react";
-import Styled  from "./ModalFooter.styled";
+import Styled from "./ModalTitle.styled";
 import PropTypes from "prop-types";
 
-const ModalFooter = ({children}) => <Styled.Footer>{children}</Styled.Footer>;
+const ModalTitle = ({ children, as }) => <Styled.Title as={as}>{children}</Styled.Title>;
 
-ModalFooter.propTypes = {
+ModalTitle.defaultProps = {
+    as: 'h4',
     children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node,
@@ -12,4 +13,4 @@ ModalFooter.propTypes = {
     ]),
 }
 
-export default ModalFooter;
+export default ModalTitle;

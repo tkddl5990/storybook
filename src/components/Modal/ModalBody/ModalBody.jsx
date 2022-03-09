@@ -1,15 +1,15 @@
 import React from "react";
-import Styled  from "./ModalFooter.styled";
+import Styled from "./ModalBody.styled";
 import PropTypes from "prop-types";
 
-const ModalFooter = ({children}) => <Styled.Footer>{children}</Styled.Footer>;
+const ModalBody = ({children}) => <Styled.Body>{children}</Styled.Body>;
 
-ModalFooter.propTypes = {
+
+ModalBody.propTypes = {
     children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node,
         PropTypes.string,
     ]),
 }
-
-export default ModalFooter;
+export default ModalBody;

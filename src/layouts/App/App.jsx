@@ -27,6 +27,7 @@ function App() {
     start: "2022-02-01",
     end: "2022-02-28"
   });
+  const [isShowModal, setIsShowModal] = useState(false);
 
   const onChangePeriodHandler = key => date => {
     setPeriod(prev => ({
@@ -364,8 +365,21 @@ function App() {
       </Card>
       <Card>
         <Grid col="1fr" align="center" gap={40}>
-          <Button>모달 켜기</Button>
-          <Modal title="모달 타이틀" />
+          <Button onClick={() => setIsShowModal(true)}>모달 켜기</Button>
+          <Modal show={isShowModal} onHide={() => setIsShowModal(false)}>
+            {/*<Modal.Dialog>*/}
+              <Modal.Header hasCloseButton>
+                <Modal.Title>Hello</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                Hello World
+              </Modal.Body>
+              <Modal.Footer>
+                <Button onClick={() => setIsShowModal(false)}>취소</Button>
+                <Button>확인</Button>
+              </Modal.Footer>
+            {/*</Modal.Dialog>*/}
+          </Modal>
         </Grid>
       </Card>
     </div>
