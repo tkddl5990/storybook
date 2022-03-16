@@ -367,7 +367,6 @@ function App() {
         <Grid col="1fr" align="center" gap={40}>
           <Button onClick={() => setIsShowModal(true)}>모달 켜기</Button>
           <Modal show={isShowModal} onHide={() => setIsShowModal(false)}>
-            {/*<Modal.Dialog>*/}
               <Modal.Header hasCloseButton>
                 <Modal.Title>Hello</Modal.Title>
               </Modal.Header>
@@ -378,7 +377,6 @@ function App() {
                 <Button onClick={() => setIsShowModal(false)}>취소</Button>
                 <Button>확인</Button>
               </Modal.Footer>
-            {/*</Modal.Dialog>*/}
           </Modal>
         </Grid>
       </Card>

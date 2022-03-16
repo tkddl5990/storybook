@@ -10,6 +10,8 @@ import ModalBody from "./ModalBody";
 import ModalFooter from "./ModalFooter";
 import ModalTitle from "./ModalTitle";
 
+export const ModalContext = React.createContext(null);
+
 const Modal = ({children, show, onHide}) => {
     const [isChildrenHasDialog, setIsChildrenHasDialog] = useState(false);
     const hideFunc = useCallback(onHide, []);
@@ -17,6 +19,7 @@ const Modal = ({children, show, onHide}) => {
     const onClickWrap = useCallback((e) => {
         e.stopPropagation()
     }, [])
+
 
     useEffect(() => {
         if (show) {
@@ -39,11 +42,13 @@ const Modal = ({children, show, onHide}) => {
     }, [children])
 
     return (
-        <ModalBackground show={isShow} onClick={hideFunc}>
-            <ModalWrapper show={isShow} onClick={onClickWrap}>
-                {isChildrenHasDialog ? children : <ModalDialog>{children}</ModalDialog>}
-            </ModalWrapper>
-        </ModalBackground>
+        <ModalContext.Provider value={{onHide}}>
+            <ModalBackground show={isShow} onClick={hideFunc}>
+                <ModalWrapper show={isShow} onClick={onClickWrap}>
+                    {isChildrenHasDialog ? children : <ModalDialog>{children}</ModalDialog>}
+                </ModalWrapper>
+            </ModalBackground>
+        </ModalContext.Provider>
     );
 };
 

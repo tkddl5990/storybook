@@ -42,7 +42,7 @@ const Template = (args) => {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
                 molestias mollitia nemo asperiores quis ut, aliquid totam
                 obcaecati. Lorem ipsum dolor sit amet consectetur adipisicing
-                elit. Vel molestias mollitia nemo asperiores quis ut, aliquid
+                elit. Vel molestias mollitia nemo aspersions quis ut, aliquid
                 totam obcaecati. Lorem ipsum dolor sit amet consectetur
                 adipisicing elit. Vel molestias mollitia nemo asperiores quis
                 ut, aliquid totam obcaecati.

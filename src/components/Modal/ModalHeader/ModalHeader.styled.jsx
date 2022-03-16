@@ -4,4 +4,12 @@ const Header = styled.div.attrs({
   className: "modal-header"
 })``;
 
-export default { Header };
+const CloseButton = styled.button.attrs({
+  className: "modal-header_btn_close"
+})`
+  font-size: 1.5rem;
+  border: 0;
+  background-color: transparent;
+`;
+
+export default { Header, CloseButton };

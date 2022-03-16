@@ -1,15 +1,16 @@
-import React, {useCallback} from "react";
+import React, {useCallback, useContext} from "react";
 import Styled from "./ModalHeader.styled";
 import PropTypes from "prop-types";
+import {ModalContext} from "../Modal";
 
-const ModalHeader = ({children, hasCloseButton, onHide}) => {
-
-    const onHideHandler = useCallback(onHide, []);
+const ModalHeader = ({children, hasCloseButton}) => {
+    const context = useContext(ModalContext);
+    const onHideHandler = useCallback(context.onHide, []);
 
     return (
         <Styled.Header>
             {children}
-            {hasCloseButton && <button onClick={onHideHandler}>X</button>}
+            {hasCloseButton && <Styled.CloseButton onClick={onHideHandler}>&times;</Styled.CloseButton>}
         </Styled.Header>
     )
 };
